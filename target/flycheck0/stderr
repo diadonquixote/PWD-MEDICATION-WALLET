@@ -1,0 +1,1534 @@
+   0.231878300s  INFO prepare_target{force=false package_id=stellar v0.1.0 (C:\Users\dapit\.vscode\stellar) target="stellar"}: cargo::core::compiler::fingerprint: stale: missing "C:\\Users\\dapit\\.vscode\\stellar\\target\\debug\\.fingerprint\\base64-6d740925719be679\\dep-lib-base64"
+   0.238749500s  INFO prepare_target{force=false package_id=stellar v0.1.0 (C:\Users\dapit\.vscode\stellar) target="stellar"}: cargo::core::compiler::fingerprint: fingerprint error for stellar v0.1.0 (C:\Users\dapit\.vscode\stellar)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("stellar", ["cdylib", "rlib"], "C:\\Users\\dapit\\.vscode\\stellar\\src\\lib.rs", Edition2021) }
+   0.238842300s  INFO prepare_target{force=false package_id=stellar v0.1.0 (C:\Users\dapit\.vscode\stellar) target="stellar"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\stellar-63601807eaa3b66a\lib-stellar`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.252110300s  INFO prepare_target{force=false package_id=soroban-sdk v20.5.0 target="soroban_sdk"}: cargo::core::compiler::fingerprint: fingerprint error for soroban-sdk v20.5.0/Check { test: false }/TargetInner { name_inferred: true, doctest: false, ..: lib_target("soroban_sdk", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\soroban-sdk-20.5.0\\src\\lib.rs", Edition2021) }
+   0.252163300s  INFO prepare_target{force=false package_id=soroban-sdk v20.5.0 target="soroban_sdk"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\soroban-sdk-bb9304efdc5c7ed6\lib-soroban_sdk`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.253015400s  INFO prepare_target{force=false package_id=arbitrary v1.3.2 target="arbitrary"}: cargo::core::compiler::fingerprint: fingerprint error for arbitrary v1.3.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("arbitrary", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\arbitrary-1.3.2\\src\\lib.rs", Edition2021) }
+   0.253040700s  INFO prepare_target{force=false package_id=arbitrary v1.3.2 target="arbitrary"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\arbitrary-f9c1678f057c0339\lib-arbitrary`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.259042800s  INFO prepare_target{force=false package_id=ed25519-dalek v2.0.0 target="ed25519_dalek"}: cargo::core::compiler::fingerprint: fingerprint error for ed25519-dalek v2.0.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("ed25519_dalek", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ed25519-dalek-2.0.0\\src\\lib.rs", Edition2021) }
+   0.259076200s  INFO prepare_target{force=false package_id=ed25519-dalek v2.0.0 target="ed25519_dalek"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ed25519-dalek-25c0a8cff6b78df5\lib-ed25519_dalek`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.259617900s  INFO prepare_target{force=false package_id=curve25519-dalek v4.1.2 target="curve25519_dalek"}: cargo::core::compiler::fingerprint: fingerprint error for curve25519-dalek v4.1.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("curve25519_dalek", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\curve25519-dalek-4.1.2\\src\\lib.rs", Edition2021) }
+   0.259639600s  INFO prepare_target{force=false package_id=curve25519-dalek v4.1.2 target="curve25519_dalek"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\curve25519-dalek-4909beb7c69eaf9e\lib-curve25519_dalek`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.261810500s  INFO prepare_target{force=false package_id=digest v0.10.7 target="digest"}: cargo::core::compiler::fingerprint: fingerprint error for digest v0.10.7/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("digest", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\digest-0.10.7\\src\\lib.rs", Edition2018) }
+   0.261831600s  INFO prepare_target{force=false package_id=digest v0.10.7 target="digest"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\digest-cf7717120300a5f7\lib-digest`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.262222800s  INFO prepare_target{force=false package_id=block-buffer v0.10.4 target="block_buffer"}: cargo::core::compiler::fingerprint: fingerprint error for block-buffer v0.10.4/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("block_buffer", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\block-buffer-0.10.4\\src\\lib.rs", Edition2018) }
+   0.262243900s  INFO prepare_target{force=false package_id=block-buffer v0.10.4 target="block_buffer"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\block-buffer-6d78913c31b4bf86\lib-block_buffer`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.262586400s  INFO prepare_target{force=false package_id=generic-array v0.14.9 target="generic_array"}: cargo::core::compiler::fingerprint: fingerprint error for generic-array v0.14.9/Check { test: false }/TargetInner { ..: lib_target("generic_array", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\generic-array-0.14.9\\src\\lib.rs", Edition2015) }
+   0.262603600s  INFO prepare_target{force=false package_id=generic-array v0.14.9 target="generic_array"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\generic-array-2b66190bf761e367\lib-generic_array`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.265083800s  INFO prepare_target{force=false package_id=crypto-common v0.1.6 target="crypto_common"}: cargo::core::compiler::fingerprint: fingerprint error for crypto-common v0.1.6/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("crypto_common", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\crypto-common-0.1.6\\src\\lib.rs", Edition2018) }
+   0.265106000s  INFO prepare_target{force=false package_id=crypto-common v0.1.6 target="crypto_common"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\crypto-common-15f49b866a748585\lib-crypto_common`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.265717600s  INFO prepare_target{force=false package_id=ed25519 v2.2.3 target="ed25519"}: cargo::core::compiler::fingerprint: fingerprint error for ed25519 v2.2.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("ed25519", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ed25519-2.2.3\\src\\lib.rs", Edition2021) }
+   0.265737000s  INFO prepare_target{force=false package_id=ed25519 v2.2.3 target="ed25519"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ed25519-5eb9a079db391b88\lib-ed25519`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.266090600s  INFO prepare_target{force=false package_id=signature v2.2.0 target="signature"}: cargo::core::compiler::fingerprint: fingerprint error for signature v2.2.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("signature", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\signature-2.2.0\\src\\lib.rs", Edition2021) }
+   0.266108300s  INFO prepare_target{force=false package_id=signature v2.2.0 target="signature"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\signature-99983e9204e63035\lib-signature`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.266768100s  INFO prepare_target{force=false package_id=sha2 v0.10.8 target="sha2"}: cargo::core::compiler::fingerprint: fingerprint error for sha2 v0.10.8/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sha2", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sha2-0.10.8\\src\\lib.rs", Edition2018) }
+   0.266789400s  INFO prepare_target{force=false package_id=sha2 v0.10.8 target="sha2"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\sha2-32a4dd55ae0b7dd0\lib-sha2`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.267127100s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint: fingerprint error for rand v0.8.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rand-0.8.5\\src\\lib.rs", Edition2018) }
+   0.267143400s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\rand-496800d478af1562\lib-rand`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.267457000s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint: fingerprint error for rand_chacha v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_chacha", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rand_chacha-0.3.1\\src\\lib.rs", Edition2018) }
+   0.267473200s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\rand_chacha-9538dd1efa9ab7e8\lib-rand_chacha`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.267773000s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.20 target="ppv_lite86"}: cargo::core::compiler::fingerprint: fingerprint error for ppv-lite86 v0.2.20/Check { test: false }/TargetInner { ..: lib_target("ppv_lite86", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ppv-lite86-0.2.20\\src\\lib.rs", Edition2021) }
+   0.267788600s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.20 target="ppv_lite86"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ppv-lite86-8cdef05274e8de94\lib-ppv_lite86`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.268151400s  INFO prepare_target{force=false package_id=zerocopy v0.7.35 target="zerocopy"}: cargo::core::compiler::fingerprint: fingerprint error for zerocopy v0.7.35/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("zerocopy", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\zerocopy-0.7.35\\src\\lib.rs", Edition2018) }
+   0.268177800s  INFO prepare_target{force=false package_id=zerocopy v0.7.35 target="zerocopy"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\zerocopy-089f329c8f4d7b59\lib-zerocopy`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.269146800s  INFO prepare_target{force=false package_id=serde v1.0.192 target="serde"}: cargo::core::compiler::fingerprint: fingerprint error for serde v1.0.192/Check { test: false }/TargetInner { name_inferred: true, doc_scrape_examples: Disabled, ..: lib_target("serde", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde-1.0.192\\src\\lib.rs", Edition2018) }
+   0.269184700s  INFO prepare_target{force=false package_id=serde v1.0.192 target="serde"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\serde-da62cc89075c3caf\lib-serde`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.270897400s  INFO prepare_target{force=false package_id=serde_json v1.0.108 target="serde_json"}: cargo::core::compiler::fingerprint: fingerprint error for serde_json v1.0.108/Check { test: false }/TargetInner { name_inferred: true, doc_scrape_examples: Disabled, ..: lib_target("serde_json", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde_json-1.0.108\\src\\lib.rs", Edition2021) }
+   0.270929600s  INFO prepare_target{force=false package_id=serde_json v1.0.108 target="serde_json"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\serde_json-c6b1589d18a80376\lib-serde_json`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.271591000s  INFO prepare_target{force=false package_id=ryu v1.0.23 target="ryu"}: cargo::core::compiler::fingerprint: fingerprint error for ryu v1.0.23/Check { test: false }/TargetInner { ..: lib_target("ryu", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ryu-1.0.23\\src\\lib.rs", Edition2021) }
+   0.271612000s  INFO prepare_target{force=false package_id=ryu v1.0.23 target="ryu"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ryu-0fc0b535a8927523\lib-ryu`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.273117200s  INFO prepare_target{force=false package_id=soroban-env-host v20.3.0 target="soroban_env_host"}: cargo::core::compiler::fingerprint: fingerprint error for soroban-env-host v20.3.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("soroban_env_host", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\soroban-env-host-20.3.0\\src\\lib.rs", Edition2021) }
+   0.273146000s  INFO prepare_target{force=false package_id=soroban-env-host v20.3.0 target="soroban_env_host"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\soroban-env-host-b66da36392aa9f75\lib-soroban_env_host`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.274013800s  INFO prepare_target{force=false package_id=backtrace v0.3.69 target="backtrace"}: cargo::core::compiler::fingerprint: fingerprint error for backtrace v0.3.69/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("backtrace", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\backtrace-0.3.69\\src\\lib.rs", Edition2018) }
+   0.274039000s  INFO prepare_target{force=false package_id=backtrace v0.3.69 target="backtrace"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\backtrace-3b5a2dc71d4ce5b0\lib-backtrace`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.275902800s  INFO prepare_target{force=false package_id=rustc-demangle v0.1.27 target="rustc_demangle"}: cargo::core::compiler::fingerprint: fingerprint error for rustc-demangle v0.1.27/Check { test: false }/TargetInner { ..: lib_target("rustc_demangle", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rustc-demangle-0.1.27\\src\\lib.rs", Edition2015) }
+   0.275938000s  INFO prepare_target{force=false package_id=rustc-demangle v0.1.27 target="rustc_demangle"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\rustc-demangle-80976ccbbba6a251\lib-rustc_demangle`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.276640200s  INFO prepare_target{force=false package_id=hmac v0.12.1 target="hmac"}: cargo::core::compiler::fingerprint: fingerprint error for hmac v0.12.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hmac", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hmac-0.12.1\\src\\lib.rs", Edition2018) }
+   0.276665400s  INFO prepare_target{force=false package_id=hmac v0.12.1 target="hmac"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\hmac-808af351eca74057\lib-hmac`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.277081600s  INFO prepare_target{force=false package_id=k256 v0.13.1 target="k256"}: cargo::core::compiler::fingerprint: fingerprint error for k256 v0.13.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("k256", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\k256-0.13.1\\src\\lib.rs", Edition2021) }
+   0.277105400s  INFO prepare_target{force=false package_id=k256 v0.13.1 target="k256"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\k256-fb9e6de6786449d0\lib-k256`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.277582900s  INFO prepare_target{force=false package_id=ecdsa v0.16.9 target="ecdsa"}: cargo::core::compiler::fingerprint: fingerprint error for ecdsa v0.16.9/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("ecdsa", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ecdsa-0.16.9\\src\\lib.rs", Edition2021) }
+   0.277607200s  INFO prepare_target{force=false package_id=ecdsa v0.16.9 target="ecdsa"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ecdsa-e921ea62c481f4e4\lib-ecdsa`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.278095500s  INFO prepare_target{force=false package_id=der v0.7.10 target="der"}: cargo::core::compiler::fingerprint: fingerprint error for der v0.7.10/Check { test: false }/TargetInner { ..: lib_target("der", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\der-0.7.10\\src\\lib.rs", Edition2021) }
+   0.278123500s  INFO prepare_target{force=false package_id=der v0.7.10 target="der"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\der-a0c548191fbd512d\lib-der`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.278550500s  INFO prepare_target{force=false package_id=elliptic-curve v0.13.8 target="elliptic_curve"}: cargo::core::compiler::fingerprint: fingerprint error for elliptic-curve v0.13.8/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("elliptic_curve", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\elliptic-curve-0.13.8\\src\\lib.rs", Edition2021) }
+   0.278573400s  INFO prepare_target{force=false package_id=elliptic-curve v0.13.8 target="elliptic_curve"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\elliptic-curve-64b230e7ac582123\lib-elliptic_curve`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.279401400s  INFO prepare_target{force=false package_id=crypto-bigint v0.5.5 target="crypto_bigint"}: cargo::core::compiler::fingerprint: fingerprint error for crypto-bigint v0.5.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("crypto_bigint", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\crypto-bigint-0.5.5\\src\\lib.rs", Edition2021) }
+   0.279431800s  INFO prepare_target{force=false package_id=crypto-bigint v0.5.5 target="crypto_bigint"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\crypto-bigint-873b30fb5f39bc70\lib-crypto_bigint`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.280084600s  INFO prepare_target{force=false package_id=group v0.13.0 target="group"}: cargo::core::compiler::fingerprint: fingerprint error for group v0.13.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("group", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\group-0.13.0\\src\\lib.rs", Edition2021) }
+   0.280102900s  INFO prepare_target{force=false package_id=group v0.13.0 target="group"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\group-c3be45d899b6927e\lib-group`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.280672600s  INFO prepare_target{force=false package_id=pkcs8 v0.10.2 target="pkcs8"}: cargo::core::compiler::fingerprint: fingerprint error for pkcs8 v0.10.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("pkcs8", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\pkcs8-0.10.2\\src\\lib.rs", Edition2021) }
+   0.280693600s  INFO prepare_target{force=false package_id=pkcs8 v0.10.2 target="pkcs8"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\pkcs8-5136a2f7e5e0e91e\lib-pkcs8`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.281084900s  INFO prepare_target{force=false package_id=spki v0.7.3 target="spki"}: cargo::core::compiler::fingerprint: fingerprint error for spki v0.7.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("spki", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\spki-0.7.3\\src\\lib.rs", Edition2021) }
+   0.281102500s  INFO prepare_target{force=false package_id=spki v0.7.3 target="spki"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\spki-f7692ee8424a3339\lib-spki`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_filter_source_repo
+  18: git_libgit2_prerelease
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: <unknown>
+  23: git_midx_writer_dump
+  24: git_filter_source_repo
+  25: git_midx_writer_dump
+  26: BaseThreadInitThunk
+  27: RtlUserThreadStart
+   0.281505000s  INFO prepare_target{force=false package_id=sec1 v0.7.3 target="sec1"}: cargo::core::compiler::fingerprint: fingerprint error for sec1 v0.7.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sec1", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sec1-0.7.3\\src\\lib.rs", Edition2021) }
+   0.281523900s  INFO prepare_target{force=false package_id=sec1 v0.7.3 target="sec1"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\sec1-9b662266d3101a2d\lib-sec1`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.281923000s  INFO prepare_target{force=false package_id=rfc6979 v0.4.0 target="rfc6979"}: cargo::core::compiler::fingerprint: fingerprint error for rfc6979 v0.4.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rfc6979", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rfc6979-0.4.0\\src\\lib.rs", Edition2021) }
+   0.281942900s  INFO prepare_target{force=false package_id=rfc6979 v0.4.0 target="rfc6979"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\rfc6979-e4bb80ea236e3ecd\lib-rfc6979`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.282338600s  INFO prepare_target{force=false package_id=once_cell v1.21.4 target="once_cell"}: cargo::core::compiler::fingerprint: fingerprint error for once_cell v1.21.4/Check { test: false }/TargetInner { ..: lib_target("once_cell", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\once_cell-1.21.4\\src\\lib.rs", Edition2021) }
+   0.282360200s  INFO prepare_target{force=false package_id=once_cell v1.21.4 target="once_cell"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\once_cell-891782ee36f3e885\lib-once_cell`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.282991500s  INFO prepare_target{force=false package_id=num-integer v0.1.45 target="num_integer"}: cargo::core::compiler::fingerprint: fingerprint error for num-integer v0.1.45/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("num_integer", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\num-integer-0.1.45\\src\\lib.rs", Edition2015) }
+   0.283010300s  INFO prepare_target{force=false package_id=num-integer v0.1.45 target="num_integer"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\num-integer-3f7935dbd5c173ff\lib-num_integer`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.284526600s  INFO prepare_target{force=false package_id=num-traits v0.2.17 target="num_traits"}: cargo::core::compiler::fingerprint: fingerprint error for num-traits v0.2.17/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("num_traits", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\num-traits-0.2.17\\src\\lib.rs", Edition2018) }
+   0.284556100s  INFO prepare_target{force=false package_id=num-traits v0.2.17 target="num_traits"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\num-traits-81110e88eef9bbe3\lib-num_traits`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.286067100s  INFO prepare_target{force=false package_id=sha3 v0.10.8 target="sha3"}: cargo::core::compiler::fingerprint: fingerprint error for sha3 v0.10.8/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sha3", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sha3-0.10.8\\src\\lib.rs", Edition2018) }
+   0.286088300s  INFO prepare_target{force=false package_id=sha3 v0.10.8 target="sha3"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\sha3-e50e4609436a9b70\lib-sha3`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.294197800s  INFO prepare_target{force=false package_id=soroban-env-common v20.3.0 target="soroban_env_common"}: cargo::core::compiler::fingerprint: fingerprint error for soroban-env-common v20.3.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("soroban_env_common", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\soroban-env-common-20.3.0\\src\\lib.rs", Edition2021) }
+   0.294241200s  INFO prepare_target{force=false package_id=soroban-env-common v20.3.0 target="soroban_env_common"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\soroban-env-common-3fbb265f577e0a03\lib-soroban_env_common`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.294928700s  INFO prepare_target{force=false package_id=ethnum v1.5.0 target="ethnum"}: cargo::core::compiler::fingerprint: fingerprint error for ethnum v1.5.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("ethnum", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ethnum-1.5.0\\src\\lib.rs", Edition2021) }
+   0.294953600s  INFO prepare_target{force=false package_id=ethnum v1.5.0 target="ethnum"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\ethnum-a38b2d2334835e7b\lib-ethnum`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.303008700s  INFO prepare_target{force=false package_id=soroban-wasmi v0.31.1-soroban.20.0.1 target="soroban_wasmi"}: cargo::core::compiler::fingerprint: fingerprint error for soroban-wasmi v0.31.1-soroban.20.0.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("soroban_wasmi", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\soroban-wasmi-0.31.1-soroban.20.0.1\\src\\lib.rs", Edition2021) }
+   0.303047800s  INFO prepare_target{force=false package_id=soroban-wasmi v0.31.1-soroban.20.0.1 target="soroban_wasmi"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\soroban-wasmi-0f604e787fe59944\lib-soroban_wasmi`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.304194600s  INFO prepare_target{force=false package_id=wasmi_core v0.13.0 target="wasmi_core"}: cargo::core::compiler::fingerprint: fingerprint error for wasmi_core v0.13.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("wasmi_core", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\wasmi_core-0.13.0\\src\\lib.rs", Edition2021) }
+   0.304218400s  INFO prepare_target{force=false package_id=wasmi_core v0.13.0 target="wasmi_core"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\wasmi_core-80d32652f654e8ce\lib-wasmi_core`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.307890400s  INFO prepare_target{force=false package_id=stellar-xdr v20.1.0 target="stellar_xdr"}: cargo::core::compiler::fingerprint: fingerprint error for stellar-xdr v20.1.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("stellar_xdr", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\stellar-xdr-20.1.0\\src\\lib.rs", Edition2021) }
+   0.307919000s  INFO prepare_target{force=false package_id=stellar-xdr v20.1.0 target="stellar_xdr"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\stellar-xdr-9928028e615c2b10\lib-stellar_xdr`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.308427100s  INFO prepare_target{force=false package_id=base64 v0.13.1 target="base64"}: cargo::core::compiler::fingerprint: fingerprint error for base64 v0.13.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("base64", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\base64-0.13.1\\src\\lib.rs", Edition2018) }
+   0.308446600s  INFO prepare_target{force=false package_id=base64 v0.13.1 target="base64"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\base64-6d740925719be679\lib-base64`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.309125800s  INFO prepare_target{force=false package_id=hex v0.4.3 target="hex"}: cargo::core::compiler::fingerprint: fingerprint error for hex v0.4.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hex", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hex-0.4.3\\src\\lib.rs", Edition2018) }
+   0.309143600s  INFO prepare_target{force=false package_id=hex v0.4.3 target="hex"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\hex-f90145642bc2a72a\lib-hex`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.309493500s  INFO prepare_target{force=false package_id=serde_with v3.12.0 target="serde_with"}: cargo::core::compiler::fingerprint: fingerprint error for serde_with v3.12.0/Check { test: false }/TargetInner { ..: lib_target("serde_with", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde_with-3.12.0\\src\\lib.rs", Edition2021) }
+   0.309511900s  INFO prepare_target{force=false package_id=serde_with v3.12.0 target="serde_with"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\serde_with-27b7a83553e2589e\lib-serde_with`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.312952900s  INFO prepare_target{force=false package_id=soroban-ledger-snapshot v20.5.0 target="soroban_ledger_snapshot"}: cargo::core::compiler::fingerprint: fingerprint error for soroban-ledger-snapshot v20.5.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("soroban_ledger_snapshot", ["lib"], "C:\\Users\\dapit\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\soroban-ledger-snapshot-20.5.0\\src\\lib.rs", Edition2021) }
+   0.312981900s  INFO prepare_target{force=false package_id=soroban-ledger-snapshot v20.5.0 target="soroban_ledger_snapshot"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\soroban-ledger-snapshot-dae22e13eac46015\lib-soroban_ledger_snapshot`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.321368800s  INFO prepare_target{force=false package_id=stellar v0.1.0 (C:\Users\dapit\.vscode\stellar) target="stellar"}: cargo::core::compiler::fingerprint: fingerprint error for stellar v0.1.0 (C:\Users\dapit\.vscode\stellar)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("stellar", ["cdylib", "rlib"], "C:\\Users\\dapit\\.vscode\\stellar\\src\\lib.rs", Edition2021) }
+   0.321399600s  INFO prepare_target{force=false package_id=stellar v0.1.0 (C:\Users\dapit\.vscode\stellar) target="stellar"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\dapit\.vscode\stellar\target\debug\.fingerprint\stellar-b10c07dce2da54b5\test-lib-stellar`
+
+Caused by:
+    The system cannot find the file specified. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+    Checking generic-array v0.14.9
+    Checking der v0.7.10
+    Checking serde v1.0.192
+    Checking num-traits v0.2.17
+    Checking zerocopy v0.7.35
+    Checking group v0.13.0
+    Checking arbitrary v1.3.2
+    Checking base64 v0.13.1
+    Checking once_cell v1.21.4
+    Checking rustc-demangle v0.1.27
+    Checking ethnum v1.5.0
+    Checking backtrace v0.3.69
+    Checking block-buffer v0.10.4
+    Checking crypto-common v0.1.6
+    Checking crypto-bigint v0.5.5
+    Checking wasmi_core v0.13.0
+    Checking ppv-lite86 v0.2.20
+    Checking digest v0.10.7
+    Checking num-integer v0.1.45
+    Checking spki v0.7.3
+    Checking signature v2.2.0
+    Checking hmac v0.12.1
+    Checking pkcs8 v0.10.2
+    Checking sec1 v0.7.3
+    Checking sha2 v0.10.8
+    Checking ed25519 v2.2.3
+    Checking rand_chacha v0.3.1
+    Checking rfc6979 v0.4.0
+    Checking soroban-wasmi v0.31.1-soroban.20.0.1
+    Checking curve25519-dalek v4.1.2
+    Checking sha3 v0.10.8
+    Checking ryu v1.0.23
+    Checking rand v0.8.5
+    Checking elliptic-curve v0.13.8
+    Checking hex v0.4.3
+    Checking serde_json v1.0.108
+    Checking ecdsa v0.16.9
+    Checking ed25519-dalek v2.0.0
+    Checking serde_with v3.12.0
+    Checking k256 v0.13.1
+    Checking stellar-xdr v20.1.0
+error: could not compile `stellar-xdr` (lib) due to 1836 previous errors

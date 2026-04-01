@@ -1,0 +1,13 @@
+C:\Users\dapit\.vscode\stellar\target\debug\deps\sha2-32a4dd55ae0b7dd0.d: C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\lib.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\core_api.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\consts.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\soft.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\x86.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\soft.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\x86.rs
+
+C:\Users\dapit\.vscode\stellar\target\debug\deps\libsha2-32a4dd55ae0b7dd0.rmeta: C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\lib.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\core_api.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\consts.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\soft.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\x86.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\soft.rs C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\x86.rs
+
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\lib.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\core_api.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\consts.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\soft.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha256\x86.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\soft.rs:
+C:\Users\dapit\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sha2-0.10.8\src\sha512\x86.rs:

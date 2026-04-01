@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MediWallet — PWD Benefit System</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#fff8f3;--bg3:#fff1e6;--surface:#ffe4cc;--surface2:#ffd9b3;
+  --border:#ffc999;--border2:#ffb37a;
+  --orange:#f97316;--orange2:#ea6c0a;--orange-dim:#fff1e6;--orange-glow:#f9731622;
+  --amber:#d97706;--amber-dim:#fef3c7;
+  --red:#ef4444;--red-dim:#fee2e2;
+  --blue:#3b82f6;--blue-dim:#eff6ff;
+  --text:#1a0a00;--text2:#7c3a10;--text3:#c2743a;
+  --mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif;
+  --radius:12px;--radius-lg:18px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:0.25;pointer-events:none;z-index:0}
+
+/* ── AUTH OVERLAY ─────────────────────────────────────────────── */
+#auth-overlay{position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,#fff8f3 0%,#fff1e6 50%,#ffe4cc 100%);display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .4s}
+#auth-overlay.hidden{opacity:0;pointer-events:none}
+
+.auth-box{background:#fff;border:1px solid var(--border);border-radius:24px;padding:40px;width:100%;max-width:480px;box-shadow:0 20px 60px #f9731610;position:relative;z-index:1}
+
+.auth-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.auth-logo-mark{width:44px;height:44px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px var(--orange-glow);flex-shrink:0}
+.auth-logo-mark svg{width:22px;height:22px}
+.auth-logo-name{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--text)}
+.auth-logo-sub{font-size:11px;color:var(--text3);font-family:var(--mono);margin-top:1px}
+
+.auth-tabs{display:flex;gap:4px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:28px}
+.auth-tab{flex:1;text-align:center;padding:8px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text3);transition:all .15s;border:1px solid transparent}
+.auth-tab.active{background:#fff;color:var(--orange);border-color:var(--border);box-shadow:0 1px 4px #f9731615}
+
+.auth-panel{display:none}.auth-panel.active{display:block}
+
+.auth-title{font-family:var(--display);font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.5px}
+.auth-sub{font-size:13px;color:var(--text3);margin-bottom:22px;font-family:var(--mono)}
+
+/* role selector */
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.role-card{border:1.5px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;text-align:center;transition:all .15s;background:#fff}
+.role-card:hover{border-color:var(--orange);background:var(--orange-dim)}
+.role-card.selected{border-color:var(--orange);background:var(--orange-dim);box-shadow:0 0 0 3px var(--orange-glow)}
+.role-icon{font-size:24px;margin-bottom:6px}
+.role-label{font-size:12px;font-weight:600;color:var(--text);font-family:var(--display)}
+.role-desc{font-size:10px;color:var(--text3);font-family:var(--mono);margin-top:2px}
+
+/* step indicator */
+.steps{display:flex;align-items:center;gap:6px;margin-bottom:22px}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .2s}
+.step-dot.done{background:var(--orange)}
+.step-dot.active{background:var(--orange);width:22px;border-radius:4px}
+.step-label{font-size:11px;font-family:var(--mono);color:var(--text3);margin-left:4px}
+
+/* conditional fields */
+.cond{display:none}.cond.show{display:block}
+
+/* disability chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{padding:5px 12px;border-radius:20px;border:1px solid var(--border);font-size:12px;cursor:pointer;background:#fff;color:var(--text2);transition:all .12s;font-family:var(--mono)}
+.chip:hover{border-color:var(--orange);color:var(--orange)}
+.chip.selected{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+/* form */
+.fg{margin-bottom:13px}
+.fl{display:block;font-size:11px;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.fi{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color .15s,box-shadow .15s}
+.fi:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+.fi::placeholder{color:var(--text3)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid transparent;transition:all .15s;font-family:var(--sans);white-space:nowrap}
+.btn-orange{background:var(--orange);color:#fff;width:100%;margin-top:6px}
+.btn-orange:hover{background:var(--orange2);transform:translateY(-1px)}
+.btn-orange:active{transform:translateY(0)}
+.btn-ghost{background:transparent;color:var(--text2);border-color:var(--border);width:100%;margin-top:8px}
+.btn-ghost:hover{background:var(--bg3);color:var(--text)}
+
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0;font-size:11px;font-family:var(--mono);color:var(--text3)}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* demo buttons */
+.demo-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.demo-btn{flex:1;padding:7px 10px;border:1px solid var(--border);border-radius:8px;font-size:11px;cursor:pointer;background:var(--bg3);color:var(--text2);font-family:var(--mono);transition:all .12s;text-align:center;min-width:80px}
+.demo-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-dim)}
+
+/* password strength */
+.pw-strength{height:3px;border-radius:2px;margin-top:5px;background:var(--border);overflow:hidden}
+.pw-bar{height:100%;border-radius:2px;transition:all .3s}
+
+/* ── MAIN APP ────────────────────────────────────────────────── */
+#main-app{display:none;position:relative;z-index:1;min-height:100vh;flex-direction:row}
+
+/* sidebar */
+.sidebar{width:240px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.logo{padding:0 20px 24px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.logo-mark{width:38px;height:38px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;box-shadow:0 0 16px var(--orange-glow)}
+.logo-mark svg{width:20px;height:20px}
+.logo-name{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:-.5px}
+.logo-sub{font-size:11px;color:var(--text3);font-family:var(--mono);margin-top:1px}
+
+/* user card in sidebar */
+.user-card{margin:0 12px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:13px;font-weight:800;flex-shrink:0}
+.user-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.2}
+.user-role{font-size:10px;font-family:var(--mono);color:var(--text3)}
+
+.nav{flex:1;padding:0 12px}
+.nav-section{font-size:10px;font-family:var(--mono);color:var(--text3);letter-spacing:.1em;text-transform:uppercase;padding:14px 8px 7px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;color:var(--text2);font-size:13px;font-weight:500;transition:all .15s;margin-bottom:2px;border:1px solid transparent}
+.nav-item:hover{background:var(--surface);color:var(--text)}
+.nav-item.active{background:var(--orange-dim);color:var(--orange);border-color:#f9731633}
+.nav-icon{width:16px;height:16px;opacity:.7;flex-shrink:0}
+.nav-item.active .nav-icon{opacity:1}
+
+.sidebar-footer{padding:14px 12px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.network-badge{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-family:var(--mono);font-size:11px;color:var(--text2)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.logout-btn{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;color:var(--text3);font-size:12px;font-family:var(--mono);border:1px solid transparent;transition:all .15s;background:transparent}
+.logout-btn:hover{background:var(--red-dim);color:var(--red);border-color:#ef444433}
+
+/* main content */
+.main{flex:1;overflow-y:auto;padding:28px 32px}
+.page{display:none;animation:fadeIn .2s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.page-title{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.5px}
+.page-sub{font-size:12px;color:var(--text3);margin-top:3px;font-family:var(--mono)}
+
+/* contract bar */
+.contract-bar{display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:9px 14px;margin-bottom:24px}
+.contract-bar label{font-size:11px;font-family:var(--mono);color:var(--text3);white-space:nowrap}
+.contract-bar input{flex:1;background:transparent;border:none;outline:none;color:var(--orange);font-family:var(--mono);font-size:12px}
+.contract-bar input::placeholder{color:var(--text3)}
+
+/* stat cards */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;position:relative;overflow:hidden;transition:border-color .2s}
+.stat-card:hover{border-color:var(--border2)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);opacity:.7}
+.stat-card.amber::before{background:var(--amber)}
+.stat-card.red::before{background:var(--red)}
+.stat-card.blue::before{background:var(--blue)}
+.stat-label{font-size:11px;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+.stat-value{font-family:var(--display);font-size:26px;font-weight:800;color:var(--text);letter-spacing:-1px;line-height:1}
+.stat-change{font-size:11px;color:var(--orange);margin-top:5px;font-family:var(--mono)}
+
+/* cards */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:16px}
+.card-title{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.badge{font-family:var(--mono);font-size:10px;font-weight:400;padding:2px 8px;border-radius:20px;background:var(--orange-dim);color:var(--orange);border:1px solid #f9731633}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+/* form elements in main */
+.form-group{margin-bottom:13px}
+.form-label{display:block;font-size:11px;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.form-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color .15s,box-shadow .15s}
+.form-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+.form-input::placeholder{color:var(--text3)}
+select.form-input{cursor:pointer}
+
+.main-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid transparent;transition:all .15s;font-family:var(--sans);white-space:nowrap}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange2);transform:translateY(-1px)}
+.btn-ghost-main{background:transparent;color:var(--text2);border-color:var(--border)}
+.btn-ghost-main:hover{background:var(--surface);color:var(--text);border-color:var(--border2)}
+.btn-danger{background:var(--red-dim);color:var(--red);border-color:#ef444433}
+.btn-danger:hover{background:#fccaca}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn-full{width:100%;justify-content:center}
+
+/* table */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th{font-size:10px;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.08em;padding:0 13px 11px;text-align:left;border-bottom:1px solid var(--border);font-weight:400}
+td{padding:12px 13px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg3);color:var(--text)}
+
+/* status */
+.status{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:11px;font-family:var(--mono);font-weight:500}
+.status-dot{width:5px;height:5px;border-radius:50%}
+.status.active{background:var(--orange-dim);color:var(--orange)}.status.active .status-dot{background:var(--orange)}
+.status.expired{background:var(--red-dim);color:var(--red)}.status.expired .status-dot{background:var(--red)}
+.status.pending{background:var(--amber-dim);color:var(--amber)}.status.pending .status-dot{background:var(--amber)}
+.status.whitelisted{background:var(--blue-dim);color:var(--blue)}.status.whitelisted .status-dot{background:var(--blue)}
+
+/* balance hero */
+.balance-hero{background:linear-gradient(135deg,#fff1e6 0%,#ffe4cc 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:16px;position:relative;overflow:hidden}
+.balance-hero::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);pointer-events:none}
+.balance-label{font-size:11px;font-family:var(--mono);color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.balance-amount{font-family:var(--display);font-size:46px;font-weight:800;letter-spacing:-2px;color:var(--text);line-height:1}
+.balance-token{font-size:17px;color:var(--text3);font-weight:400;margin-left:5px}
+.balance-restricted{display:flex;align-items:center;gap:6px;margin-top:13px;font-size:12px;color:var(--amber);font-family:var(--mono);background:var(--amber-dim);border:1px solid #d9770633;border-radius:8px;padding:7px 12px;width:fit-content}
+
+/* tx list */
+.tx-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.tx-item:last-child{border-bottom:none}
+.tx-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.tx-icon.incoming{background:var(--orange-dim);color:var(--orange)}
+.tx-icon.outgoing{background:var(--red-dim);color:var(--red)}
+.tx-name{font-size:13px;font-weight:500;color:var(--text)}
+.tx-meta{font-size:11px;font-family:var(--mono);color:var(--text3);margin-top:1px}
+.tx-amount{font-family:var(--mono);font-size:14px;font-weight:500}
+.tx-amount.pos{color:var(--orange)}
+.tx-amount.neg{color:var(--red)}
+
+/* qr */
+.qr-container{display:flex;flex-direction:column;align-items:center;padding:22px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border)}
+.qr-grid{width:120px;height:120px;display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin-bottom:12px}
+.qr-cell{aspect-ratio:1;border-radius:1px}
+
+/* empty state */
+.empty{text-align:center;padding:36px 20px;color:var(--text3);font-family:var(--mono);font-size:12px}
+
+/* toast */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:11px 16px;font-size:13px;font-family:var(--mono);color:var(--text);box-shadow:0 8px 28px #00000018;transform:translateY(80px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);z-index:9999;max-width:300px}
+#toast.show{transform:translateY(0);opacity:1}
+#toast.success{border-color:var(--orange);color:var(--orange)}
+#toast.error{border-color:var(--red);color:var(--red)}
+#toast.info{border-color:var(--amber);color:var(--amber)}
+
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text3)}
+
+@media(max-width:700px){.sidebar{display:none}.main{padding:16px}.stats-grid{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     AUTH OVERLAY
+══════════════════════════════════════════════════════════════ -->
+<div id="auth-overlay">
+  <div class="auth-box">
+
+    <div class="auth-logo">
+      <div class="auth-logo-mark">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="auth-logo-name">MediWallet</div>
+        <div class="auth-logo-sub">PWD Benefit System · Stellar Network</div>
+      </div>
+    </div>
+
+    <!-- tabs -->
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</div>
+      <div class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Create Account</div>
+    </div>
+
+    <!-- ── SIGN IN ──────────────────────────────────────────────── -->
+    <div id="panel-login" class="auth-panel active">
+      <div class="auth-title">Welcome back</div>
+      <div class="auth-sub">Sign in with your email or PWD ID</div>
+
+      <div class="fg">
+        <label class="fl">Email or PWD ID</label>
+        <input class="fi" id="login-email" type="text" placeholder="juan@email.com or PWD-2025-0001"/>
+      </div>
+      <div class="fg">
+        <label class="fl">Password</label>
+        <input class="fi" id="login-pass" type="password" placeholder="••••••••"/>
+      </div>
+      <button class="btn btn-orange" onclick="doLogin()">Sign In →</button>
+
+      <div class="divider">or try a demo account</div>
+      <div class="demo-row">
+        <div class="demo-btn" onclick="demoLogin('admin')">👑 Gov Admin</div>
+        <div class="demo-btn" onclick="demoLogin('pwd')">♿ PWD</div>
+        <div class="demo-btn" onclick="demoLogin('merchant')">🏥 Merchant</div>
+      </div>
+    </div>
+
+    <!-- ── REGISTER ─────────────────────────────────────────────── -->
+    <div id="panel-register" class="auth-panel">
+
+      <!-- Step 1: Choose Role -->
+      <div id="reg-step-1">
+        <div class="auth-title">Create your account</div>
+        <div class="auth-sub">Step 1 of 3 — choose your role</div>
+        <div class="steps"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><span class="step-label">Who are you?</span></div>
+
+        <div class="role-grid">
+          <div class="role-card" id="role-pwd" onclick="selectRole('pwd')">
+            <div class="role-icon">♿</div>
+            <div class="role-label">PWD Beneficiary</div>
+            <div class="role-desc">I receive medical grants</div>
+          </div>
+          <div class="role-card" id="role-caregiver" onclick="selectRole('caregiver')">
+            <div class="role-icon">🤝</div>
+            <div class="role-label">Caregiver</div>
+            <div class="role-desc">I assist a PWD</div>
+          </div>
+          <div class="role-card" id="role-merchant" onclick="selectRole('merchant')">
+            <div class="role-icon">🏥</div>
+            <div class="role-label">Merchant</div>
+            <div class="role-desc">Hospital or pharmacy</div>
+          </div>
+          <div class="role-card" id="role-admin" onclick="selectRole('admin')">
+            <div class="role-icon">👑</div>
+            <div class="role-label">Government Admin</div>
+            <div class="role-desc">LGU / health officer</div>
+          </div>
+        </div>
+        <button class="btn btn-orange" onclick="goStep(2)">Continue →</button>
+      </div>
+
+      <!-- Step 2: Personal Info -->
+      <div id="reg-step-2" style="display:none">
+        <div class="auth-title">Personal info</div>
+        <div class="auth-sub" id="step2-sub">Step 2 of 3 — your details</div>
+        <div class="steps"><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div><span class="step-label">Your details</span></div>
+
+        <div class="row2">
+          <div class="fg"><label class="fl">First Name</label><input class="fi" id="reg-fname" placeholder="Juan"/></div>
+          <div class="fg"><label class="fl">Last Name</label><input class="fi" id="reg-lname" placeholder="dela Cruz"/></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" id="reg-email" type="email" placeholder="juan@email.com"/></div>
+        <div class="fg"><label class="fl">Mobile Number</label><input class="fi" id="reg-mobile" placeholder="+63 9XX XXX XXXX"/></div>
+        <div class="fg"><label class="fl">City / Municipality</label><input class="fi" id="reg-city" placeholder="Bacoor, Cavite"/></div>
+
+        <!-- PWD-specific fields -->
+        <div class="cond" id="pwd-fields">
+          <div class="fg"><label class="fl">PWD ID Number</label><input class="fi" id="reg-pwd-id" placeholder="PWD-2025-XXXX"/></div>
+          <div class="fg">
+            <label class="fl">Type of Disability</label>
+            <div class="chips" id="disability-chips">
+              <div class="chip" onclick="toggleChip(this)">Visual</div>
+              <div class="chip" onclick="toggleChip(this)">Hearing</div>
+              <div class="chip" onclick="toggleChip(this)">Physical</div>
+              <div class="chip" onclick="toggleChip(this)">Psychosocial</div>
+              <div class="chip" onclick="toggleChip(this)">Intellectual</div>
+              <div class="chip" onclick="toggleChip(this)">Learning</div>
+              <div class="chip" onclick="toggleChip(this)">Speech</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Merchant-specific fields -->
+        <div class="cond" id="merchant-fields">
+          <div class="fg"><label class="fl">Establishment Name</label><input class="fi" id="reg-est-name" placeholder="Mercury Drug Cavite"/></div>
+          <div class="fg">
+            <label class="fl">Type</label>
+            <select class="fi" id="reg-est-type"><option value="pharmacy">Pharmacy</option><option value="hospital">Hospital</option><option value="clinic">Clinic</option></select>
+          </div>
+        </div>
+
+        <!-- Admin-specific fields -->
+        <div class="cond" id="admin-fields">
+          <div class="fg"><label class="fl">LGU / Office Name</label><input class="fi" id="reg-lgu" placeholder="LGU Bacoor Health Office"/></div>
+          <div class="fg"><label class="fl">Admin Access Code</label><input class="fi" id="reg-admin-code" type="password" placeholder="Provided by system admin"/></div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <button class="btn btn-ghost" onclick="goStep(1)" style="flex:1">← Back</button>
+          <button class="btn btn-orange" onclick="goStep(3)" style="flex:2">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Stellar + Password -->
+      <div id="reg-step-3" style="display:none">
+        <div class="auth-title">Wallet &amp; security</div>
+        <div class="auth-sub">Step 3 of 3 — link your Stellar wallet</div>
+        <div class="steps"><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div><span class="step-label">Security</span></div>
+
+        <div class="fg">
+          <label class="fl">Stellar Wallet Address (public key)</label>
+          <input class="fi" id="reg-stellar" placeholder="G… (56 characters)"/>
+          <div style="font-size:11px;color:var(--text3);font-family:var(--mono);margin-top:4px">Get a wallet at <a href="https://freighter.app" target="_blank" style="color:var(--orange)">freighter.app</a> or <a href="https://lobstr.co" target="_blank" style="color:var(--orange)">lobstr.co</a></div>
+        </div>
+        <div class="fg">
+          <label class="fl">Password</label>
+          <input class="fi" id="reg-pass" type="password" placeholder="Min. 8 characters" oninput="checkPwStrength(this.value)"/>
+          <div class="pw-strength"><div class="pw-bar" id="pw-bar"></div></div>
+        </div>
+        <div class="fg">
+          <label class="fl">Confirm Password</label>
+          <input class="fi" id="reg-pass2" type="password" placeholder="Repeat password"/>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <button class="btn btn-ghost" onclick="goStep(2)" style="flex:1">← Back</button>
+          <button class="btn btn-orange" onclick="doRegister()" style="flex:2">Create Account ✓</button>
+        </div>
+      </div>
+
+    </div><!-- /panel-register -->
+  </div><!-- /auth-box -->
+</div><!-- /auth-overlay -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     MAIN APP
+══════════════════════════════════════════════════════════════ -->
+<div id="main-app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="logo-name">MediWallet</div>
+      <div class="logo-sub">PWD Benefit System</div>
+    </div>
+
+    <!-- User info -->
+    <div class="user-card">
+      <div class="user-avatar" id="sidebar-avatar">?</div>
+      <div>
+        <div class="user-name" id="sidebar-name">Loading…</div>
+        <div class="user-role" id="sidebar-role"></div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-section">Overview</div>
+      <div class="nav-item active" onclick="navigate('dashboard',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z"/></svg>Dashboard
+      </div>
+
+      <div class="nav-section nav-gov">Government</div>
+      <div class="nav-item nav-gov" onclick="navigate('beneficiaries',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 100-6 3 3 0 000 6zm-5 6a5 5 0 0110 0H3z"/></svg>Beneficiaries
+      </div>
+      <div class="nav-item nav-gov" onclick="navigate('merchants',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v2H2zm1 3h10v8H3zm3 2v4h2V8H6z"/></svg>Merchants
+      </div>
+      <div class="nav-item nav-gov" onclick="navigate('disburse',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l7 4-7 4-7-4 7-4zm0 7l7-4v6l-7 4-7-4V4l7 4z"/></svg>Disburse Funds
+      </div>
+
+      <div class="nav-section nav-pwd">PWD Portal</div>
+      <div class="nav-item nav-pwd" onclick="navigate('wallet',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1 4a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V4zm11 4a1 1 0 11-2 0 1 1 0 012 0z"/></svg>My Wallet
+      </div>
+      <div class="nav-item nav-pwd" onclick="navigate('pay',this)">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 4.5v1.75H10.5v1.5H8.75V10.5h-1.5V8.75H5.5v-1.5h1.75V5.5h1.5z"/></svg>Pay Merchant
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="network-badge"><div class="dot"></div>Stellar Testnet</div>
+      <div class="logout-btn" onclick="doLogout()">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M10 2H3v12h7v-2H5V4h5V2zm3 6l-3-3v2H6v2h4v2l3-3z"/></svg>
+        Sign out
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Contract bar -->
+    <div class="contract-bar">
+      <label>CONTRACT</label>
+      <input type="text" id="contractId" value="CB75LVIPNCM2T5WWROXVIGQTSNWGWMIC6RZKOENSP5GDFJHX6NYIP3VD" placeholder="Contract ID…"/>
+      <a id="explorerLink" href="https://stellar.expert/explorer/testnet/contract/CB75LVIPNCM2T5WWROXVIGQTSNWGWMIC6RZKOENSP5GDFJHX6NYIP3VD" target="_blank">
+        <button class="main-btn btn-ghost-main btn-sm" style="white-space:nowrap">View on stellar.expert ↗</button>
+      </a>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page active">
+      <div class="page-header">
+        <div><div class="page-title">Dashboard</div><div class="page-sub">MediWallet / Stellar Testnet</div></div>
+        <button class="main-btn btn-primary" onclick="navigate('disburse',null)">+ Disburse Funds</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Beneficiaries</div><div class="stat-value" id="stat-b">0</div><div class="stat-change">registered PWDs</div></div>
+        <div class="stat-card amber"><div class="stat-label">Total Disbursed</div><div class="stat-value" id="stat-d">₱0</div><div class="stat-change">all-time grants</div></div>
+        <div class="stat-card blue"><div class="stat-label">Merchants</div><div class="stat-value" id="stat-m">0</div><div class="stat-change">whitelisted</div></div>
+        <div class="stat-card red"><div class="stat-label">Payments</div><div class="stat-value" id="stat-p">0</div><div class="stat-change">transactions</div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Recent Transactions <span class="badge">Live</span></div>
+          <div id="dash-txlist"><div class="empty">No transactions yet.</div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Fund Flow</div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:26px;height:26px;border-radius:50%;background:var(--orange-dim);border:1px solid #f9731633;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--orange);flex-shrink:0">1</div>
+              <div><div style="font-size:13px;font-weight:600">Register PWD</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">LGU adds beneficiary on-chain</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:26px;height:26px;border-radius:50%;background:var(--orange-dim);border:1px solid #f9731633;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--orange);flex-shrink:0">2</div>
+              <div><div style="font-size:13px;font-weight:600">Disburse Grant</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Funds locked in Soroban escrow</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:26px;height:26px;border-radius:50%;background:var(--orange-dim);border:1px solid #f9731633;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--orange);flex-shrink:0">3</div>
+              <div><div style="font-size:13px;font-weight:600">PWD Pays Merchant</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Only whitelisted hospitals/pharmacies</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:26px;height:26px;border-radius:50%;background:var(--amber-dim);border:1px solid #d9770633;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--amber);flex-shrink:0">4</div>
+              <div><div style="font-size:13px;font-weight:600">Clawback</div><div style="font-size:11px;color:var(--text3);font-family:var(--mono)">Unspent funds returned to treasury</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFICIARIES -->
+    <div id="page-beneficiaries" class="page">
+      <div class="page-header"><div><div class="page-title">Beneficiaries</div><div class="page-sub">Registered PWD accounts</div></div></div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title">Register New Beneficiary</div>
+        <div class="grid-2">
+          <div class="form-group"><label class="form-label">PWD Stellar Address</label><input class="form-input" id="reg-pwd-addr" placeholder="G… (public key)"/></div>
+          <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="reg-pwd-name" placeholder="Juan dela Cruz"/></div>
+        </div>
+        <button class="main-btn btn-primary" onclick="registerBeneficiary()">Register Beneficiary</button>
+      </div>
+      <div class="card">
+        <div class="card-title">All Beneficiaries</div>
+        <div class="table-wrap"><table><thead><tr><th>Name</th><th>Address</th><th>Balance</th><th>Status</th><th>Action</th></tr></thead><tbody id="beneficiaries-table"><tr><td colspan="5"><div class="empty">No beneficiaries yet.</div></td></tr></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- MERCHANTS -->
+    <div id="page-merchants" class="page">
+      <div class="page-header"><div><div class="page-title">Merchants</div><div class="page-sub">Whitelisted hospitals &amp; pharmacies</div></div></div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title">Add Merchant</div>
+        <div class="grid-2">
+          <div class="form-group"><label class="form-label">Merchant Stellar Address</label><input class="form-input" id="merchant-addr" placeholder="G…"/></div>
+          <div class="form-group"><label class="form-label">Merchant Name</label><input class="form-input" id="merchant-name" placeholder="Mercury Drug Cavite"/></div>
+          <div class="form-group"><label class="form-label">Type</label><select class="form-input" id="merchant-type"><option value="pharmacy">Pharmacy</option><option value="hospital">Hospital</option><option value="clinic">Clinic</option></select></div>
+        </div>
+        <button class="main-btn btn-primary" onclick="addMerchant()">Add to Whitelist</button>
+      </div>
+      <div class="card">
+        <div class="card-title">Whitelisted Merchants</div>
+        <div class="table-wrap"><table><thead><tr><th>Name</th><th>Type</th><th>Address</th><th>Status</th><th>Action</th></tr></thead><tbody id="merchants-table"><tr><td colspan="5"><div class="empty">No merchants yet.</div></td></tr></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- DISBURSE -->
+    <div id="page-disburse" class="page">
+      <div class="page-header"><div><div class="page-title">Disburse Funds</div><div class="page-sub">Send monthly grants to PWD wallets</div></div></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Single Disbursement</div>
+          <div class="form-group"><label class="form-label">PWD</label><select class="form-input" id="disburse-pwd"><option value="">Select registered PWD…</option></select></div>
+          <div class="form-group"><label class="form-label">Amount (PHP)</label><input class="form-input" id="disburse-amount" type="number" placeholder="5000"/></div>
+          <div class="form-group"><label class="form-label">Expiry ledger (0 = never)</label><input class="form-input" id="disburse-expiry" type="number" value="0"/></div>
+          <button class="main-btn btn-primary btn-full" onclick="disburse()" style="margin-top:4px">Disburse Grant</button>
+        </div>
+        <div class="card"><div class="card-title">Disbursement Log</div><div id="disburse-log"><div class="empty">No disbursements yet.</div></div></div>
+      </div>
+    </div>
+
+    <!-- WALLET -->
+    <div id="page-wallet" class="page">
+      <div class="page-header"><div><div class="page-title">My Wallet</div><div class="page-sub">PWD restricted benefit account</div></div></div>
+      <div class="grid-2">
+        <div>
+          <div class="balance-hero">
+            <div class="balance-label">Available Balance</div>
+            <div class="balance-amount">₱<span id="wallet-balance-val">0</span><span class="balance-token">PHP</span></div>
+            <div class="balance-restricted">🔒 Medical establishments only</div>
+          </div>
+          <div class="card">
+            <div class="card-title">My QR Code</div>
+            <div class="qr-container"><div class="qr-grid" id="qr-grid"></div><div style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-top:4px;text-align:center">Show at pharmacy counter</div></div>
+          </div>
+        </div>
+        <div class="card"><div class="card-title">Transaction History</div><div id="wallet-txlist"><div class="empty">No transactions yet.</div></div></div>
+      </div>
+    </div>
+
+    <!-- PAY -->
+    <div id="page-pay" class="page">
+      <div class="page-header"><div><div class="page-title">Pay Merchant</div><div class="page-sub">Restricted payment — whitelisted only</div></div></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Make Payment</div>
+          <div class="form-group"><label class="form-label">Your PWD Address</label><input class="form-input" id="pay-pwd" placeholder="G…"/></div>
+          <div class="form-group"><label class="form-label">Merchant</label><select class="form-input" id="pay-merchant"><option value="">Select whitelisted merchant…</option></select></div>
+          <div class="form-group"><label class="form-label">Amount (PHP)</label><input class="form-input" id="pay-amount" type="number" placeholder="780"/></div>
+          <div style="background:var(--amber-dim);border:1px solid #d9770633;border-radius:8px;padding:9px 13px;margin:12px 0;font-size:12px;font-family:var(--mono);color:var(--amber)">⚠ Rejected on-chain if merchant not whitelisted</div>
+          <button class="main-btn btn-primary btn-full" onclick="payMerchant()">Confirm Payment</button>
+        </div>
+        <div class="card"><div class="card-title">Whitelisted Near You</div><div id="pay-merchant-list"><div class="empty">No merchants added yet.</div></div></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── Storage helpers ───────────────────────────────────────────────
+const USERS_KEY   = 'mw_users';
+const SESSION_KEY = 'mw_session';
+
+function getUsers()  { try { return JSON.parse(localStorage.getItem(USERS_KEY)  || '[]'); } catch(e){ return []; } }
+function saveUsers(u){ localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+function getSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch(e){ return null; } }
+function saveSession(u){ localStorage.setItem(SESSION_KEY, JSON.stringify(u)); }
+
+// Seed demo accounts if none exist
+function seedDemoAccounts() {
+  if (getUsers().length) return;
+  const demo = [
+    { id:'demo-admin', role:'admin', fname:'Helena', lname:'Herrero', email:'admin@lgu.gov', mobile:'+63 912 000 0001', city:'Bacoor, Cavite', stellar:'GADMIN1234ABCDEFGHIJ5678KLMNOPQRSTUVWXYZ012345678901234567890', pwd_id:'', disability:[], org:'LGU Bacoor Health Office', password:'admin123' },
+    { id:'demo-pwd', role:'pwd', fname:'Maria', lname:'Santos', email:'maria@email.com', mobile:'+63 912 000 0002', city:'Bacoor, Cavite', stellar:'GABC1234DEFG5678HIJK9012LMNO3456PQRS7890TUVW1234XYZA5678BCD', pwd_id:'PWD-2025-0042', disability:['Physical'], org:'', password:'pwd123' },
+    { id:'demo-merchant', role:'merchant', fname:'Mercury', lname:'Drug', email:'mercury@drug.com', mobile:'+63 912 000 0003', city:'Cavite', stellar:'GMER1234CURY5678DRUG9012ABCD3456EFGH7890IJKL1234MNOP5678QRS', pwd_id:'', disability:[], org:'Mercury Drug Cavite', password:'merchant123' },
+  ];
+  saveUsers(demo);
+}
+seedDemoAccounts();
+
+// ── Auth state ────────────────────────────────────────────────────
+let selectedRole = '';
+let currentStep  = 1;
+
+function switchAuthTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+function selectRole(role) {
+  selectedRole = role;
+  document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('role-' + role).classList.add('selected');
+}
+
+function goStep(n) {
+  if (n === 2 && !selectedRole) { toast('Please select a role first', 'error'); return; }
+  if (n === 3) {
+    const fname = document.getElementById('reg-fname').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    if (!fname) { toast('First name required', 'error'); return; }
+    if (!email) { toast('Email required', 'error'); return; }
+  }
+  currentStep = n;
+  document.getElementById('reg-step-1').style.display = n === 1 ? 'block' : 'none';
+  document.getElementById('reg-step-2').style.display = n === 2 ? 'block' : 'none';
+  document.getElementById('reg-step-3').style.display = n === 3 ? 'block' : 'none';
+
+  if (n === 2) {
+    // Show/hide conditional fields
+    document.getElementById('pwd-fields').classList.toggle('show', selectedRole === 'pwd' || selectedRole === 'caregiver');
+    document.getElementById('merchant-fields').classList.toggle('show', selectedRole === 'merchant');
+    document.getElementById('admin-fields').classList.toggle('show', selectedRole === 'admin');
+    const labels = { pwd:'PWD Beneficiary', caregiver:'Caregiver', merchant:'Merchant', admin:'Government Admin' };
+    document.getElementById('step2-sub').textContent = `Step 2 of 3 — ${labels[selectedRole] || ''} details`;
+  }
+}
+
+function toggleChip(el) { el.classList.toggle('selected'); }
+
+function checkPwStrength(v) {
+  const bar = document.getElementById('pw-bar');
+  let score = 0;
+  if (v.length >= 8) score++;
+  if (/[A-Z]/.test(v)) score++;
+  if (/[0-9]/.test(v)) score++;
+  if (/[^A-Za-z0-9]/.test(v)) score++;
+  const colors = ['#ef4444','#f97316','#d97706','#22c55e'];
+  const widths  = ['25%','50%','75%','100%'];
+  bar.style.background = colors[score - 1] || 'var(--border)';
+  bar.style.width = widths[score - 1] || '0%';
+}
+
+function doRegister() {
+  const fname   = document.getElementById('reg-fname').value.trim();
+  const lname   = document.getElementById('reg-lname').value.trim();
+  const email   = document.getElementById('reg-email').value.trim();
+  const mobile  = document.getElementById('reg-mobile').value.trim();
+  const city    = document.getElementById('reg-city').value.trim();
+  const stellar = document.getElementById('reg-stellar').value.trim();
+  const pass    = document.getElementById('reg-pass').value;
+  const pass2   = document.getElementById('reg-pass2').value;
+  const pwdId   = document.getElementById('reg-pwd-id') ? document.getElementById('reg-pwd-id').value.trim() : '';
+
+  if (!stellar || !stellar.startsWith('G') || stellar.length < 20) { toast('Valid Stellar address required', 'error'); return; }
+  if (!email)   { toast('Email required', 'error'); return; }
+  if (pass.length < 8) { toast('Password must be 8+ characters', 'error'); return; }
+  if (pass !== pass2)  { toast('Passwords do not match', 'error'); return; }
+
+  const users = getUsers();
+  if (users.find(u => u.email === email)) { toast('Email already registered', 'error'); return; }
+
+  const disability = [...document.querySelectorAll('#disability-chips .chip.selected')].map(c => c.textContent.trim());
+  const adminCode  = document.getElementById('reg-admin-code') ? document.getElementById('reg-admin-code').value : '';
+  if (selectedRole === 'admin' && adminCode !== 'ADMIN2025') { toast('Invalid admin access code', 'error'); return; }
+
+  const lgu     = document.getElementById('reg-lgu') ? document.getElementById('reg-lgu').value.trim() : '';
+  const estName = document.getElementById('reg-est-name') ? document.getElementById('reg-est-name').value.trim() : '';
+
+  const newUser = { id:'user-'+Date.now(), role:selectedRole, fname, lname, email, mobile, city, stellar, pwd_id:pwdId, disability, org:lgu||estName||'', password:pass };
+  users.push(newUser);
+  saveUsers(users);
+  loginUser(newUser);
+  toast(`Welcome, ${fname}! Account created ✓`, 'success');
+}
+
+function doLogin() {
+  const identifier = document.getElementById('login-email').value.trim();
+  const pass       = document.getElementById('login-pass').value;
+  const users      = getUsers();
+  const user = users.find(u => (u.email === identifier || u.pwd_id === identifier) && u.password === pass);
+  if (!user) { toast('Invalid credentials — check email/PWD ID and password', 'error'); return; }
+  loginUser(user);
+}
+
+function demoLogin(role) {
+  const map     = { admin:'admin@lgu.gov', pwd:'maria@email.com', merchant:'mercury@drug.com' };
+  const passMap = { admin:'admin123', pwd:'pwd123', merchant:'merchant123' };
+  document.getElementById('login-email').value = map[role];
+  document.getElementById('login-pass').value  = passMap[role];
+  doLogin();
+}
+
+function loginUser(user) {
+  saveSession(user);
+  const initials = (user.fname[0] + (user.lname ? user.lname[0] : '')).toUpperCase();
+  document.getElementById('sidebar-avatar').textContent = initials;
+  document.getElementById('sidebar-name').textContent   = user.fname + ' ' + (user.lname||'');
+  const roleLabels = { admin:'👑 Gov Admin', pwd:'♿ PWD Beneficiary', merchant:'🏥 Merchant', caregiver:'🤝 Caregiver' };
+  document.getElementById('sidebar-role').textContent   = roleLabels[user.role] || user.role;
+
+  applyRoleNav(user.role);
+
+  const overlay = document.getElementById('auth-overlay');
+  overlay.classList.add('hidden');
+  setTimeout(() => { overlay.style.display = 'none'; }, 400);
+  document.getElementById('main-app').style.display = 'flex';
+
+  if (user.role === 'pwd') {
+    const ppwd = document.getElementById('pay-pwd');
+    if (ppwd) ppwd.value = user.stellar;
+    const wbal = document.getElementById('wallet-balance-val');
+    const b = appState.beneficiaries.find(x => x.addr === user.stellar);
+    if (wbal) wbal.textContent = b ? b.balance.toLocaleString() : '0';
+  }
+
+  toast('Signed in as ' + user.fname + ' (' + user.role + ') ✓', 'success');
+}
+
+function doLogout() {
+  localStorage.removeItem(SESSION_KEY);
+  location.reload();
+}
+
+function applyRoleNav(role) {
+  document.querySelectorAll('.nav-gov').forEach(el => {
+    el.style.display = (role === 'pwd' || role === 'merchant' || role === 'caregiver') ? 'none' : '';
+  });
+  document.querySelectorAll('.nav-pwd').forEach(el => {
+    el.style.display = (role === 'admin' || role === 'merchant') ? 'none' : '';
+  });
+}
+
+// ── App state ─────────────────────────────────────────────────────
+const appState = {
+  contractId: 'CB75LVIPNCM2T5WWROXVIGQTSNWGWMIC6RZKOENSP5GDFJHX6NYIP3VD',
+  beneficiaries: [
+    { addr:'GABC1234DEFG5678HIJK9012LMNO3456PQRS7890TUVW1234XYZA5678BCD', name:'Maria Santos', balance:4220 },
+    { addr:'GXYZ9876WVUT5432SRQP1098ONML7654KJIH3210GFED9876CBA5432ZYX', name:'Jose Reyes', balance:5000 },
+  ],
+  merchants: [
+    { addr:'GMER1234CURY5678DRUG9012ABCD3456EFGH7890IJKL1234MNOP5678QRS', name:'Mercury Drug Cavite', type:'pharmacy' },
+    { addr:'GHOS1234PITA5678LMNO9012ABCD3456EFGH7890IJKL1234MNOP5678QRS', name:'Ospital ng Maynila', type:'hospital' },
+  ],
+  disbursements: [
+    { pwdName:'Maria Santos', amount:5000, expiry:0, date:'Mar 1, 2025' },
+    { pwdName:'Jose Reyes',   amount:5000, expiry:0, date:'Mar 1, 2025' },
+  ],
+  payments: [
+    { pwdName:'Maria Santos', merchant:'Mercury Drug', amount:780, date:'Mar 25, 2025' },
+  ],
+};
+
+// ── Navigation ────────────────────────────────────────────────────
+function navigate(page, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  if (el) el.classList.add('active');
+  if (page === 'disburse') refreshDisburseSelect();
+  if (page === 'pay') { refreshMerchantSelect(); refreshPayMerchantList(); }
+  updateStats();
+}
+
+function updateStats() {
+  document.getElementById('stat-b').textContent = appState.beneficiaries.length;
+  document.getElementById('stat-d').textContent = '₱' + appState.disbursements.reduce((s,d) => s+d.amount, 0).toLocaleString();
+  document.getElementById('stat-m').textContent = appState.merchants.length;
+  document.getElementById('stat-p').textContent = appState.payments.length;
+  renderDashTx();
+}
+
+function renderDashTx() {
+  const el = document.getElementById('dash-txlist');
+  const all = [
+    ...appState.disbursements.map(d => ({ ...d, type:'in' })),
+    ...appState.payments.map(p => ({ ...p, type:'out' })),
+  ];
+  if (!all.length) { el.innerHTML = '<div class="empty">No transactions yet.</div>'; return; }
+  el.innerHTML = all.slice(-6).reverse().map(t => `
+    <div class="tx-item">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="tx-icon ${t.type==='in'?'incoming':'outgoing'}">${t.type==='in'?'↓':'↑'}</div>
+        <div>
+          <div class="tx-name">${t.type==='in' ? 'Grant — '+t.pwdName : t.merchant}</div>
+          <div class="tx-meta">${t.date}</div>
+        </div>
+      </div>
+      <div class="tx-amount ${t.type==='in'?'pos':'neg'}">${t.type==='in'?'+':'−'}₱${t.amount.toLocaleString()}</div>
+    </div>`).join('');
+}
+
+// ── Beneficiaries ─────────────────────────────────────────────────
+function registerBeneficiary() {
+  const addr = document.getElementById('reg-pwd-addr').value.trim();
+  const name = document.getElementById('reg-pwd-name').value.trim();
+  if (!addr) { toast('Stellar address required', 'error'); return; }
+  if (!addr.startsWith('G') || addr.length < 10) { toast('Invalid Stellar address', 'error'); return; }
+  if (appState.beneficiaries.find(b => b.addr === addr)) { toast('Already registered', 'error'); return; }
+  appState.beneficiaries.push({ addr, name: name || 'Unnamed PWD', balance: 0 });
+  document.getElementById('reg-pwd-addr').value = '';
+  document.getElementById('reg-pwd-name').value = '';
+  renderBeneficiariesTable();
+  updateStats();
+  toast('Beneficiary registered ✓', 'success');
+}
+
+function renderBeneficiariesTable() {
+  const tbody = document.getElementById('beneficiaries-table');
+  if (!appState.beneficiaries.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty">No beneficiaries yet.</div></td></tr>'; return; }
+  tbody.innerHTML = appState.beneficiaries.map(b => `
+    <tr>
+      <td style="color:var(--text);font-weight:600">${b.name}</td>
+      <td><code style="font-family:var(--mono);font-size:11px;color:var(--text3)">${b.addr.slice(0,12)}…${b.addr.slice(-6)}</code></td>
+      <td style="font-family:var(--mono);color:var(--orange)">₱${b.balance.toLocaleString()}</td>
+      <td><span class="status active"><span class="status-dot"></span>Active</span></td>
+      <td><button class="main-btn btn-danger btn-sm" onclick="deregister('${b.addr}')">Remove</button></td>
+    </tr>`).join('');
+}
+
+function deregister(addr) {
+  const b = appState.beneficiaries.find(x => x.addr === addr);
+  if (b && b.balance > 0) toast('Returning ₱' + b.balance + ' to treasury', 'info');
+  appState.beneficiaries = appState.beneficiaries.filter(x => x.addr !== addr);
+  renderBeneficiariesTable();
+  updateStats();
+  toast('Beneficiary removed', 'success');
+}
+
+// ── Merchants ─────────────────────────────────────────────────────
+function addMerchant() {
+  const addr = document.getElementById('merchant-addr').value.trim();
+  const name = document.getElementById('merchant-name').value.trim();
+  const type = document.getElementById('merchant-type').value;
+  if (!addr || !addr.startsWith('G') || addr.length < 10) { toast('Invalid Stellar address', 'error'); return; }
+  if (appState.merchants.find(m => m.addr === addr)) { toast('Already whitelisted', 'error'); return; }
+  appState.merchants.push({ addr, name: name || 'Unnamed', type });
+  document.getElementById('merchant-addr').value = '';
+  document.getElementById('merchant-name').value = '';
+  renderMerchantsTable();
+  updateStats();
+  toast(name + ' added to whitelist ✓', 'success');
+}
+
+function renderMerchantsTable() {
+  const tbody = document.getElementById('merchants-table');
+  if (!appState.merchants.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty">No merchants yet.</div></td></tr>'; return; }
+  tbody.innerHTML = appState.merchants.map(m => `
+    <tr>
+      <td style="color:var(--text);font-weight:600">${m.name}</td>
+      <td><span class="status whitelisted"><span class="status-dot"></span>${m.type}</span></td>
+      <td><code style="font-family:var(--mono);font-size:11px;color:var(--text3)">${m.addr.slice(0,12)}…${m.addr.slice(-6)}</code></td>
+      <td><span class="status active"><span class="status-dot"></span>Active</span></td>
+      <td><button class="main-btn btn-danger btn-sm" onclick="removeMerchant('${m.addr}')">Remove</button></td>
+    </tr>`).join('');
+}
+
+function removeMerchant(addr) {
+  appState.merchants = appState.merchants.filter(m => m.addr !== addr);
+  renderMerchantsTable();
+  updateStats();
+  toast('Merchant removed', 'success');
+}
+
+// ── Disburse ──────────────────────────────────────────────────────
+function refreshDisburseSelect() {
+  document.getElementById('disburse-pwd').innerHTML =
+    '<option value="">Select registered PWD…</option>' +
+    appState.beneficiaries.map(b => `<option value="${b.addr}">${b.name} (${b.addr.slice(0,8)}…)</option>`).join('');
+}
+
+function disburse() {
+  const addr   = document.getElementById('disburse-pwd').value;
+  const amount = parseInt(document.getElementById('disburse-amount').value) || 0;
+  const expiry = parseInt(document.getElementById('disburse-expiry').value) || 0;
+  if (!addr)   { toast('Select a PWD', 'error'); return; }
+  if (amount <= 0) { toast('Amount must be > 0', 'error'); return; }
+  const b = appState.beneficiaries.find(x => x.addr === addr);
+  if (!b) { toast('PWD not found', 'error'); return; }
+  b.balance += amount;
+  appState.disbursements.push({ pwdName:b.name, amount, expiry, date:new Date().toLocaleDateString() });
+  renderBeneficiariesTable();
+  renderDisburseLog();
+  updateStats();
+  document.getElementById('disburse-amount').value = '';
+  toast('₱' + amount.toLocaleString() + ' disbursed to ' + b.name + ' ✓', 'success');
+}
+
+function renderDisburseLog() {
+  const el = document.getElementById('disburse-log');
+  if (!appState.disbursements.length) { el.innerHTML = '<div class="empty">No disbursements yet.</div>'; return; }
+  el.innerHTML = [...appState.disbursements].reverse().map(d => `
+    <div class="tx-item">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="tx-icon incoming">↓</div>
+        <div><div class="tx-name">${d.pwdName}</div><div class="tx-meta">${d.date} · expiry:${d.expiry||'none'}</div></div>
+      </div>
+      <div class="tx-amount pos">+₱${d.amount.toLocaleString()}</div>
+    </div>`).join('');
+}
+
+// ── Pay merchant ──────────────────────────────────────────────────
+function refreshMerchantSelect() {
+  document.getElementById('pay-merchant').innerHTML =
+    '<option value="">Select whitelisted merchant…</option>' +
+    appState.merchants.map(m => `<option value="${m.addr}">${m.name} (${m.type})</option>`).join('');
+}
+
+function refreshPayMerchantList() {
+  const el = document.getElementById('pay-merchant-list');
+  if (!appState.merchants.length) { el.innerHTML = '<div class="empty">No merchants added yet.</div>'; return; }
+  el.innerHTML = appState.merchants.map(m => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)">
+      <div><div style="font-size:13px;font-weight:600;color:var(--text)">${m.name}</div><div style="font-size:11px;font-family:var(--mono);color:var(--text3)">${m.type} · ${m.addr.slice(0,10)}…</div></div>
+      <span class="status active"><span class="status-dot"></span>Whitelisted</span>
+    </div>`).join('');
+}
+
+function payMerchant() {
+  const pwdAddr = document.getElementById('pay-pwd').value.trim();
+  const mAddr   = document.getElementById('pay-merchant').value;
+  const amount  = parseInt(document.getElementById('pay-amount').value) || 0;
+  if (!pwdAddr) { toast('Enter your PWD address', 'error'); return; }
+  if (!mAddr)   { toast('Select a merchant', 'error'); return; }
+  if (amount <= 0) { toast('Amount must be > 0', 'error'); return; }
+  const b = appState.beneficiaries.find(x => x.addr === pwdAddr);
+  if (!b) { toast('Address not registered as PWD', 'error'); return; }
+  const m = appState.merchants.find(x => x.addr === mAddr);
+  if (!m) { toast('⛔ Merchant not whitelisted — rejected', 'error'); return; }
+  if (b.balance < amount) { toast('Insufficient balance. Available: ₱' + b.balance.toLocaleString(), 'error'); return; }
+  b.balance -= amount;
+  appState.payments.push({ pwdName:b.name, merchant:m.name, amount, date:new Date().toLocaleDateString() });
+  renderBeneficiariesTable();
+  updateStats();
+  document.getElementById('pay-amount').value = '';
+  const wbal = document.getElementById('wallet-balance-val');
+  const session = getSession();
+  if (session && session.stellar === pwdAddr && wbal) wbal.textContent = b.balance.toLocaleString();
+  toast('₱' + amount.toLocaleString() + ' paid to ' + m.name + ' ✓', 'success');
+}
+
+// ── QR ────────────────────────────────────────────────────────────
+function generateQR() {
+  const grid = document.getElementById('qr-grid');
+  if (!grid) return;
+  grid.innerHTML = Array.from({length:64},(_,i) => {
+    const r=Math.floor(i/8),c=i%8;
+    const corner=(r<2&&c<2)||(r<2&&c>5)||(r>5&&c<2);
+    const filled=corner||Math.random()>0.45;
+    return `<div class="qr-cell" style="background:${filled?'var(--orange)':'var(--bg3)'}"></div>`;
+  }).join('');
+}
+
+// ── Toast ─────────────────────────────────────────────────────────
+function toast(msg, type='success') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + type;
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.className=''; }, 3500);
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+(function init() {
+  const session = getSession();
+  if (session) {
+    loginUser(session);
+  }
+  generateQR();
+  renderBeneficiariesTable();
+  renderMerchantsTable();
+  renderDisburseLog();
+  updateStats();
+})();
+</script>
+</body>
+</html>
